@@ -16,6 +16,8 @@ class SplashScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Image.asset("assets/man.png", width: 170),
+              SizedBox(height: 100),
               Text("Welcome to the Login App",
                   style: headerStyle, textAlign: TextAlign.center),
               SizedBox(height: 100),
@@ -26,7 +28,12 @@ class SplashScreen extends StatelessWidget {
                 }),
               ),
               SizedBox(height: 10),
-              buttonContainer(context, "Sign up", () {})
+              Hero(
+                tag: "signup",
+                child: buttonContainer(context, "Sign up", () {
+                  Navigator.pushNamed(context, "/signup");
+                }),
+              )
             ],
           ),
         ),

@@ -12,6 +12,13 @@ Map<String, Widget Function(BuildContext)> routes = {
   "/home": (context) => HomeScreen()
 };
 
+ScaffoldFeatureController<SnackBar, SnackBarClosedReason> showSnakBar(
+        Color color, String? title, BuildContext context) =>
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      backgroundColor: color,
+      content: Text(title!),
+    ));
+
 TextStyle headerStyle = GoogleFonts.poppins(
     fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white);
 
@@ -39,8 +46,12 @@ Widget buttonContainer(BuildContext context, String name, Function() onTap) =>
       ),
     );
 
-Widget textfieldContainer(BuildContext context, bool obscureText, String label,
-        TextEditingController controller) =>
+Widget textfieldContainer(
+  BuildContext context,
+  bool obscureText,
+  String label,
+  TextEditingController controller,
+) =>
     Container(
       height: 50,
       width: fullWidth(context) * 0.7,
