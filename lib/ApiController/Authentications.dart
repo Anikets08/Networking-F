@@ -17,15 +17,19 @@ class Authentication {
   // SIGNUP
   static Future<Map<String, dynamic>> signup(
       {String? fName, String? lName, String? email, String? password}) async {
+    print(fName);
+    print(lName);
+    print(email);
+    print(password);
     final http.Response response =
         await http.post(Uri.parse(baseUrl + "/regis"),
-            body: json.encode({
+            body: {
               "fName": fName,
-              "lName": lName,
+              "lname": lName,
               "email": email,
               "password": password,
-              "phone": 9075125922
-            }));
+              "phone": 9075125922.toString()
+            });
     return json.decode(response.body);
   }
 
